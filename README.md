@@ -37,3 +37,18 @@ $ aws fis list-experiment-templates | jq -r '.experimentTemplates[].id'
 # テンプレートIDを指定し、削除する
 $ aws fis delete-experiment-template --id <ID>
 ```
+
+# 注意
+スポットインスタンスリクエストがスポットインスタンスを生成するまで時間があるため、
+その間に`aws_ec2_tag`でタグ付けを行おうとして失敗します。(以下エラー参照)  
+その際は再度`terraform apply`を実行して下さい。
+
+```bash
+│ Error: Missing required argument
+│ 
+│   with module.spot.aws_ec2_tag.tag,
+│   on ../../modules/spot/main.tf line 66, in resource "aws_ec2_tag" "tag":
+│   66:   resource_id = aws_spot_instance_request.test.spot_instance_id
+│ 
+│ The argument "resource_id" is required, but no definition was found.
+```
