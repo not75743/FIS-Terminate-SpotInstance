@@ -9,7 +9,7 @@ Terraformで停止用のスポットインスタンスを即座に用意出来�
 - ネットワーク一式
 - スポットインスタンス(one-time)
 - FIS用IAMロール
-- FIS用CloudwatchLogグループ
+- FIS用CloudwatchLogグループ(`/fis/logs/`)
 
 ※実験テンプレートはawscliで用意します。  
 ※東京リージョンにリソースが作成されます。
@@ -24,7 +24,7 @@ aws fis create-experiment-template --cli-input-json file://template.json
 ```
 
 - 作成した実験テンプレートより実験を開始する
-- スポットインスタンスが停止すること、CloudWatchLogsグループに実行ログが記録されることを確認する
+- スポットインスタンスが停止すること、CloudWatchLogsグループ(`/fis/logs/`)に実行ログが記録されることを確認する
 
 # 片付け手順
 - `terraform destroy`
