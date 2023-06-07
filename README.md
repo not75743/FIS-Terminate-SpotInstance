@@ -15,7 +15,7 @@ Terraformで停止用のスポットインスタンスを即座に用意出来�
 ※東京リージョンにリソースが作成されます。
 
 # セットアップ手順
-- `envs/dev`にて`terraform apply`
+- `envs/dev`にて`terraform init`,`terraform apply`
 - 実験テンプレート`envs/dev/template.json`から実験テンプレートを作成
   - AWSアカウントIDは補完すること
 
