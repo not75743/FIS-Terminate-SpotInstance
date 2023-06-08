@@ -34,3 +34,8 @@ module "spot" {
   VPCID     = module.network.VPCID
   public1ID = module.network.public1ID
 }
+
+module "SpotInterruptionNotice" {
+  source = "../../modules/SpotInterruptionNotice"
+  email  = "<メールアドレスを入れる>"
+}
